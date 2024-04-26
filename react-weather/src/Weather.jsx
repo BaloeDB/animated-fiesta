@@ -7,6 +7,7 @@ function WeatherApp() {
   const [weatherData, setWeatherData] = useState(null);
   const [forecastData, setForecastData] = useState(null);
   const [weatherAlerts, setWeatherAlerts] = useState(null);
+  const [favorites, setFavorites] = useState([]);
 
   // Fetches weather data of the current day for a given location
   const fetchWeatherData = (location) => {
@@ -16,8 +17,14 @@ function WeatherApp() {
       .then((response) => response.json())
       .then((data) => {
         setWeatherData(data);
+        setCity(data.location.name);
       })
       .catch((error) => console.error("Error:", error));
+  };
+
+  // Adds the current city to favorites
+  const addToFavorites = () => {
+    setFavorites((prevFavorites) => [...prevFavorites, city]);
   };
 
   // Fetches forecast data for upcoming three days for a given location
@@ -61,6 +68,21 @@ function WeatherApp() {
   // The JSX for the weather app
   return (
     <div className="weather-app">
+      {/* Favorites section */}
+      <div className="favorites">
+        {favorites.map((favorite, index) => (
+          <button
+            key={index}
+            className={`favorite-tab ${favorite === city ? "active" : ""}`}
+            onClick={() => {
+              fetchWeatherData(favorite);
+              fetchForecastData(favorite);
+            }}
+          >
+            {favorite}
+          </button>
+        ))}
+      </div>
       {/* Search bar section */}
       <div className="search-bar">
         <h1>Search City</h1>
@@ -73,6 +95,9 @@ function WeatherApp() {
         />
         <button onClick={handleSearch} className="search-button">
           Search
+        </button>
+        <button onClick={addToFavorites} className="search-button">
+          Add to Favorites
         </button>
       </div>
       {/* Current weather data section */}

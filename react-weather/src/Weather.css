@@ -20,11 +20,15 @@ body {
 .weather-data,
 .forecast-data {
   background-color: #ffffff;
-  padding: 20px;
+  padding: 10px;
   border-radius: 10px;
   margin: 10px;
   width: 80%;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.search-bar {
+  padding-bottom: 20px;
 }
 
 /* This styles the headers for each section */
@@ -167,4 +171,26 @@ body {
   font-size: 16px;
   color: #333333;
   font-weight: bold;
+}
+
+/* This styles the favorites section */
+.favorites {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+/* This styles the tabs of the favorite */
+.favorite-tab {
+  padding: 10px 20px;
+  margin: 0 10px;
+  border: 1px solid #dddddd;
+  border-bottom: none;
+  border-radius: 10px 10px 0 0;
+  background-color: #f0f8ff;
+  cursor: pointer;
+}
+
+.favorite-tab.active {
+  background-color: #ffffff;
 }
