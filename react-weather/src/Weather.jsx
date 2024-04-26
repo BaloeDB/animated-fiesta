@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./Weather.css";
 
 function WeatherApp() {
@@ -7,29 +7,47 @@ function WeatherApp() {
   const [weatherData, setWeatherData] = useState(null);
   const [forecastData, setForecastData] = useState(null);
 
-  // This function is called when the search button is clicked
-  const handleSearch = async () => {
+  // Fetches weather data of the current day for a given location
+  const fetchWeatherData = (location) => {
     const apiKey = process.env.API_KEY;
-    const currentUrl = `http://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}`;
-    const forecastUrl = `http://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${city}&days=4`; // replace 3 with the number of days you want the forecast for
-
-    // Fetch current weather data
+    const currentUrl = `http://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${location}`;
     fetch(currentUrl)
       .then((response) => response.json())
-      .then((data) => {
-        console.log(data);
-        setWeatherData(data);
-      })
+      .then((data) => setWeatherData(data))
       .catch((error) => console.error("Error:", error));
+  };
 
-    // Fetch forecast data
-    fetch(forecastUrl)
+  // Fetches forecast data for upcoming three days for a given location
+  const fetchForecastData = (location) => {
+    const apiKey = process.env.API_KEY;
+    const url = `http://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${location}&days=4`;
+    fetch(url)
       .then((response) => response.json())
       .then((data) => {
         console.log(data.forecast.forecastday);
         setForecastData(data.forecast.forecastday.slice(1));
-      }) // Save the forecast data in a new state variable
+      })
       .catch((error) => console.error("Error:", error));
+  };
+
+  // This effect runs when the component mounts
+  useEffect(() => {
+    /* global navigator */
+    navigator.geolocation.getCurrentPosition((position) => {
+      const lat = position.coords.latitude;
+      const lon = position.coords.longitude;
+
+      // Fetch weather data for the user's current location
+      fetchWeatherData(`${lat},${lon}`);
+      fetchForecastData(`${lat},${lon}`);
+    });
+  }, []);
+
+  // This function is called when the search button is clicked
+  const handleSearch = async () => {
+    // Fetch weather data for the input city
+    fetchWeatherData(city);
+    fetchForecastData(city);
   };
 
   // The JSX for the weather app
