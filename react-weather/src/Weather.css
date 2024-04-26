@@ -1,6 +1,7 @@
 /* This removes the margin around the page */
 body {
   margin: 0;
+  background-color: #f0f8ff;
 }
 
 /* This is the main container for the app */
@@ -8,7 +9,6 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #f0f8ff;
   font-family: Arial, sans-serif;
   padding: 20px;
   text-align: center;
@@ -51,7 +51,6 @@ body {
 /* This styles each day's forecast data */
 .forecast-day {
   padding: 10px;
-  border-right: 1px solid #dddddd;
   width: 200px;
   text-align: center;
 }
@@ -59,11 +58,6 @@ body {
 /* This styles the header for the forecast data */
 .forecast-data h1 {
   width: 100%;
-}
-
-/* This removes the border from the last forecast day */
-.forecast-day:last-of-type {
-  border-right: none;
 }
 
 /* This styles the date in each day's forecast data */

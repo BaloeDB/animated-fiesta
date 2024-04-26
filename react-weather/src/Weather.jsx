@@ -30,7 +30,8 @@ function WeatherApp() {
   // Fetches forecast data for upcoming three days for a given location
   const fetchForecastData = (location) => {
     const apiKey = process.env.API_KEY;
-    const url = `http://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${location}&days=4&alerts=yes`;
+    const days = 3;
+    const url = `http://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${location}&days=${days + 1}&alerts=yes`;
     fetch(url)
       .then((response) => response.json())
       .then((data) => {
