@@ -5,19 +5,27 @@ function WeatherApp() {
   // State for the city input and weather data
   const [city, setCity] = useState("");
   const [weatherData, setWeatherData] = useState(null);
+  const [forecastData, setForecastData] = useState(null);
 
   // This function is called when the search button is clicked
   const handleSearch = async () => {
     const apiKey = process.env.API_KEY;
-    const url = `http://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}`;
+    const currentUrl = `http://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}`;
+    const forecastUrl = `http://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${city}&days=4`; // replace 3 with the number of days you want the forecast for
 
-    // Make the API request and update the state with the returned data
-    fetch(url)
+    // Fetch current weather data
+    fetch(currentUrl)
+      .then((response) => response.json())
+      .then((data) => setWeatherData(data))
+      .catch((error) => console.error("Error:", error));
+
+    // Fetch forecast data
+    fetch(forecastUrl)
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
-        setWeatherData(data);
-      })
+        console.log(data.forecast.forecastday);
+        setForecastData(data.forecast.forecastday.slice(1));
+      }) // Save the forecast data in a new state variable
       .catch((error) => console.error("Error:", error));
   };
 
@@ -58,6 +66,17 @@ function WeatherApp() {
             <p>Humidity: {weatherData.current.humidity}%</p>
             <p>Last updated: {weatherData.current.last_updated}</p>
           </div>
+        </div>
+      )}
+      {forecastData && (
+        <div className="forecast-data">
+          {forecastData.map((day) => (
+            <div key={day.date} className="forecast-day">
+              <h3>{day.date}</h3>
+              <p>Temperature: {day.day.avgtemp_c}°C</p>
+              <p>Condition: {day.day.condition.text}</p>
+            </div>
+          ))}
         </div>
       )}
     </div>
