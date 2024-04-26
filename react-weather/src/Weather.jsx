@@ -23,10 +23,7 @@ function WeatherApp() {
     const url = `http://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${location}&days=4`;
     fetch(url)
       .then((response) => response.json())
-      .then((data) => {
-        console.log(data.forecast.forecastday);
-        setForecastData(data.forecast.forecastday.slice(1));
-      })
+      .then((data) => setForecastData(data.forecast.forecastday.slice(1)))
       .catch((error) => console.error("Error:", error));
   };
 
@@ -54,6 +51,7 @@ function WeatherApp() {
   return (
     <div className="weather-app">
       <div className="search-bar">
+        <h1>Search City</h1>
         <input
           type="text"
           value={city}
@@ -67,9 +65,9 @@ function WeatherApp() {
       </div>
       {weatherData && (
         <div className="weather-data">
-          <h2 className="city-name">
+          <h1>
             {weatherData.location.name}, {weatherData.location.country}
-          </h2>
+          </h1>
           <img
             className="weather-icon"
             src={weatherData.current.condition.icon}
@@ -91,6 +89,7 @@ function WeatherApp() {
       )}
       {forecastData && (
         <div className="forecast-data">
+          <h1>Forecast</h1>
           {forecastData.map((day) => (
             <div key={day.date} className="forecast-day">
               <h3>{day.date}</h3>
