@@ -1,14 +1,17 @@
 import { useState } from "react";
-import "./Weather.css"; // Import the CSS file
+import "./Weather.css";
 
 function WeatherApp() {
+  // State for the city input and weather data
   const [city, setCity] = useState("");
   const [weatherData, setWeatherData] = useState(null);
 
+  // This function is called when the search button is clicked
   const handleSearch = async () => {
-    const apiKey = process.env.API_KEY; // replace with your environment variable name
+    const apiKey = process.env.API_KEY;
     const url = `http://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}`;
 
+    // Make the API request and update the state with the returned data
     fetch(url)
       .then((response) => response.json())
       .then((data) => {
@@ -18,6 +21,7 @@ function WeatherApp() {
       .catch((error) => console.error("Error:", error));
   };
 
+  // The JSX for the weather app
   return (
     <div className="weather-app">
       <div className="search-bar">
