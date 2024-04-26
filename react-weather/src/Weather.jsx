@@ -1,11 +1,13 @@
 import { useState } from "react";
+import "./Weather.css"; // Import the CSS file
 
 function WeatherApp() {
   const [city, setCity] = useState("");
   const [weatherData, setWeatherData] = useState(null);
 
   const handleSearch = async () => {
-    const url = `http://api.weatherapi.com/v1/current.json?key=${process.env.API_KEY}&q=${city}`;
+    const apiKey = process.env.API_KEY; // replace with your environment variable name
+    const url = `http://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}`;
 
     fetch(url)
       .then((response) => response.json())
@@ -14,19 +16,24 @@ function WeatherApp() {
   };
 
   return (
-    <div>
+    <div className="weather-app">
       <input
         type="text"
         value={city}
         onChange={(e) => setCity(e.target.value)}
         placeholder="Enter city"
+        className="search-input"
       />
-      <button onClick={handleSearch}>Search</button>
+      <button onClick={handleSearch} className="search-button">
+        Search
+      </button>
       {weatherData && (
-        <div>
-          <h2>{weatherData.location.name}</h2>
-          <p>{weatherData.current.temp_c}°C</p>
-          <p>{weatherData.current.condition.text}</p>
+        <div className="weather-data">
+          <h2 className="city-name">{weatherData.location.name}</h2>
+          <p className="temperature">{weatherData.current.temp_c}°C</p>
+          <p className="weather-description">
+            {weatherData.current.condition.text}
+          </p>
         </div>
       )}
     </div>
