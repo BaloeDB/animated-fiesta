@@ -1,7 +1,9 @@
+/* This removes the margin around the page */
 body {
   margin: 0;
 }
 
+/* This is the main container for the app */
 .weather-app {
   display: flex;
   flex-direction: column;
@@ -13,64 +15,7 @@ body {
   border-radius: 10px;
 }
 
-.search-input {
-  padding: 10px;
-  width: 200px;
-  margin-right: 10px;
-}
-
-.search-button {
-  padding: 10px 20px;
-}
-
-.city-name {
-  font-size: 24px;
-  font-weight: bold;
-}
-
-.temperature {
-  font-size: 20px;
-  color: #ff7f50;
-}
-
-.weather-description {
-  font-size: 16px;
-  color: #808080;
-}
-
-.weather-icon {
-  height: 50px;
-  width: 50px;
-}
-
-.weather-details {
-  font-size: 14px;
-  color: #696969;
-  margin-top: 10px;
-}
-
-.forecast-data {
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-}
-
-.forecast-day {
-  padding: 10px;
-  border-right: 1px solid #dddddd;
-  width: 200px;
-  text-align: center;
-}
-
-.forecast-day:last-of-type {
-  border-right: none;
-}
-
-.forecast-day h3 {
-  font-size: 20px;
-  font-weight: bold;
-}
-
+/* This styles the search bar and each section */
 .search-bar,
 .weather-data,
 .forecast-data {
@@ -82,6 +27,7 @@ body {
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
 
+/* This styles the headers for each section */
 .search-bar h1,
 .weather-data h1,
 .forecast-data h1 {
@@ -91,6 +37,76 @@ body {
   font-weight: bold;
 }
 
+/* This styles the forecast data container */
+.forecast-data {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+/* This styles each day's forecast data */
+.forecast-day {
+  padding: 10px;
+  border-right: 1px solid #dddddd;
+  width: 200px;
+  text-align: center;
+}
+
+/* This styles the header for the forecast data */
 .forecast-data h1 {
   width: 100%;
+}
+
+/* This removes the border from the last forecast day */
+.forecast-day:last-of-type {
+  border-right: none;
+}
+
+/* This styles the date in each day's forecast data */
+.forecast-day h3 {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+/* This styles the search input field */
+.search-input {
+  padding: 10px;
+  width: 200px;
+  margin-right: 10px;
+}
+
+/* This styles the search button */
+.search-button {
+  padding: 10px 20px;
+}
+
+/* This styles the city name in the weather data */
+.city-name {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+/* This styles the temperature in the weather data */
+.temperature {
+  font-size: 20px;
+  color: #ff7f50;
+}
+
+/* This styles the weather description in the weather data */
+.weather-description {
+  font-size: 16px;
+  color: #808080;
+}
+
+/* This styles the weather icon in the weather data */
+.weather-icon {
+  height: 50px;
+  width: 50px;
+}
+
+/* This styles the additional weather details (wind, humidity, last updated) */
+.weather-details {
+  font-size: 14px;
+  color: #696969;
+  margin-top: 10px;
 }
