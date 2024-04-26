@@ -1,0 +1,113 @@
+commit 45c5ab516cd8b0523e2568e21fcfd5b24b1bcb29
+Author: Peter Diepstraten <psrdiepstraten@gmail.com>
+Date:   Fri Apr 26 18:04:15 2024 +0200
+
+    Minor Changes
+
+commit b596df3d84b8633906c6f516278c2627e89b5ee3
+Author: Peter Diepstraten <psrdiepstraten@gmail.com>
+Date:   Fri Apr 26 17:57:24 2024 +0200
+
+    Updated README
+
+commit 57eb68905e9ce3ba86675b9db35d640778ee9dce
+Author: Peter Diepstraten <psrdiepstraten@gmail.com>
+Date:   Fri Apr 26 17:48:47 2024 +0200
+
+    Added README to collect location
+
+commit ae5ac62cf70af75afa7e56bfecc9eef9c802fd12
+Author: Peter Diepstraten <psrdiepstraten@gmail.com>
+Date:   Fri Apr 26 17:48:15 2024 +0200
+
+    Added README to collect location
+
+commit 1fc3ce0696325fd6466608ff301f6d9b38004d42
+Author: Peter Diepstraten <psrdiepstraten@gmail.com>
+Date:   Fri Apr 26 17:47:18 2024 +0200
+
+    Updated Readme
+
+commit 5798e560ac044001c4ad0040efd860df4645db12
+Author: Peter Diepstraten <psrdiepstraten@gmail.com>
+Date:   Fri Apr 26 17:43:03 2024 +0200
+
+    Favorites
+
+commit bd3021da4deff1ae40c8c92d787af220b8fcea9f
+Author: Peter Diepstraten <psrdiepstraten@gmail.com>
+Date:   Fri Apr 26 17:12:45 2024 +0200
+
+    Weather Alerts Modal
+
+commit bfe6911cfb749bee949136caf8c75969d23c8a2b
+Author: Peter Diepstraten <psrdiepstraten@gmail.com>
+Date:   Fri Apr 26 16:11:06 2024 +0200
+
+    Documentation of css
+
+commit 49bf048f9d8c6d641c2e262a233cc24f46888d1d
+Author: Peter Diepstraten <psrdiepstraten@gmail.com>
+Date:   Fri Apr 26 16:03:13 2024 +0200
+
+    Separation between sections & headers
+
+commit 2c23fd1ba9bad7601e6b69f9ee14148f37732b30
+Author: Peter Diepstraten <psrdiepstraten@gmail.com>
+Date:   Fri Apr 26 15:47:52 2024 +0200
+
+    Add Geolocation
+
+commit 9c0f77ab8be5537146b5c4c1e17eb94e26502873
+Author: Peter Diepstraten <psrdiepstraten@gmail.com>
+Date:   Fri Apr 26 15:35:06 2024 +0200
+
+    Small improvements Forecast Data
+
+commit 066e0dcf033de884334a2fcad0f67ec2e23e1e0b
+Author: Peter Diepstraten <psrdiepstraten@gmail.com>
+Date:   Fri Apr 26 15:27:51 2024 +0200
+
+    Forecast Data + Simple Styling
+
+commit 8d839a6215087e5510f8f9d7014823f04e44bdac
+Author: Peter Diepstraten <psrdiepstraten@gmail.com>
+Date:   Fri Apr 26 15:16:05 2024 +0200
+
+    README
+
+commit f4df501a57ef08309f02f434c17e0b066faeedb8
+Author: Peter Diepstraten <psrdiepstraten@gmail.com>
+Date:   Fri Apr 26 15:14:13 2024 +0200
+
+    Documentation
+
+commit 5c66e6a2e2f5d23b77eb50b6a3b117f81f57365f
+Author: Peter Diepstraten <psrdiepstraten@gmail.com>
+Date:   Fri Apr 26 15:09:47 2024 +0200
+
+    More data display & more styling
+
+commit b2376570708a5adf22519239829c82568131a4fc
+Author: Peter Diepstraten <psrdiepstraten@gmail.com>
+Date:   Fri Apr 26 14:59:56 2024 +0200
+
+    Basic Styling
+
+commit 21059a4e7050b35182ea53b5a6a7bb8f7ff3eefa
+Author: Peter Diepstraten <psrdiepstraten@gmail.com>
+Date:   Fri Apr 26 14:56:12 2024 +0200
+
+    Setup .env api key, first iteration weather app
+
+commit 1d0e2b2d5e07e3471b72f2439417df7404e536e5
+Author: Peter Diepstraten <psrdiepstraten@gmail.com>
+Date:   Fri Apr 26 14:06:06 2024 +0200
+
+    Setup Project
+
+commit ae4a53140a74506336cb4d7fba273a46572deaa0
+Author: Peter Diepstraten <Psrdiepstraten@gmail.com>
+Date:   Fri Apr 26 13:20:39 2024 +0200
+
+    Initial commit
