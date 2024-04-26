@@ -6,6 +6,7 @@ function WeatherApp() {
   const [city, setCity] = useState("");
   const [weatherData, setWeatherData] = useState(null);
   const [forecastData, setForecastData] = useState(null);
+  const [weatherAlerts, setWeatherAlerts] = useState(null);
 
   // Fetches weather data of the current day for a given location
   const fetchWeatherData = (location) => {
@@ -13,17 +14,24 @@ function WeatherApp() {
     const currentUrl = `http://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${location}`;
     fetch(currentUrl)
       .then((response) => response.json())
-      .then((data) => setWeatherData(data))
+      .then((data) => {
+        setWeatherData(data);
+      })
       .catch((error) => console.error("Error:", error));
   };
 
   // Fetches forecast data for upcoming three days for a given location
   const fetchForecastData = (location) => {
     const apiKey = process.env.API_KEY;
-    const url = `http://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${location}&days=4`;
+    const url = `http://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${location}&days=4&alerts=yes`;
     fetch(url)
       .then((response) => response.json())
-      .then((data) => setForecastData(data.forecast.forecastday.slice(1)))
+      .then((data) => {
+        setForecastData(data.forecast.forecastday.slice(1));
+        if (data.alerts.alert.length !== 0) {
+          setWeatherAlerts(data.alerts.alert);
+        }
+      })
       .catch((error) => console.error("Error:", error));
   };
 
@@ -42,6 +50,9 @@ function WeatherApp() {
 
   // This function is called when the search button is clicked
   const handleSearch = async () => {
+    // Reset weather alerts
+    setWeatherAlerts(null);
+
     // Fetch weather data for the input city
     fetchWeatherData(city);
     fetchForecastData(city);
@@ -50,6 +61,7 @@ function WeatherApp() {
   // The JSX for the weather app
   return (
     <div className="weather-app">
+      {/* Search bar section */}
       <div className="search-bar">
         <h1>Search City</h1>
         <input
@@ -63,6 +75,7 @@ function WeatherApp() {
           Search
         </button>
       </div>
+      {/* Current weather data section */}
       {weatherData && (
         <div className="weather-data">
           <h1>
@@ -87,6 +100,7 @@ function WeatherApp() {
           </div>
         </div>
       )}
+      {/* Forecast data section */}
       {forecastData && (
         <div className="forecast-data">
           <h1>Forecast</h1>
@@ -102,6 +116,21 @@ function WeatherApp() {
               <p className="weather-description">{day.day.condition.text}</p>
             </div>
           ))}
+        </div>
+      )}
+      {/* Weather Alerts Modal */}
+      {weatherAlerts && (
+        <div className="modal">
+          <div className="modal-content">
+            <button onClick={() => setWeatherAlerts(null)}>&times;</button>
+            <h1>Weather Alerts</h1>
+            {weatherAlerts.map((alert, index) => (
+              <div key={index} className="alert">
+                <h3>{alert.headline}</h3>
+                <p>{alert.desc.split("*")[1].replace("WHAT...", "")}</p>
+              </div>
+            ))}
+          </div>
         </div>
       )}
     </div>

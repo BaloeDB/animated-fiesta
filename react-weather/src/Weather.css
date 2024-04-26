@@ -110,3 +110,61 @@ body {
   color: #696969;
   margin-top: 10px;
 }
+
+/* This styles the weather alerts modal container */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* This centers the weather alerts modal and sets background to seethrough black */
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* This styles the weather alerts modal content */
+.modal-content {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  width: 80%;
+  max-width: 800px;
+}
+
+/* This styles the weather alerts modal close button */
+.modal-content button {
+  display: inline-block;
+  background: #ff0000;
+  color: #ffffff;
+  text-align: center;
+  line-height: 25px;
+  border-radius: 50%;
+  font-size: 20px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+/* This styles each individual weather alert */
+.alert {
+  border: 1px solid #ff0000; /* Red border to indicate alert */
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+}
+
+/* This styles the headline of each weather alert */
+.alert h3 {
+  font-size: 20px;
+  font-weight: bold;
+  color: #ff0000; /* Red text to indicate alert */
+}
+
+/* This styles the description of each weather alert */
+.alert p {
+  font-size: 16px;
+  color: #333333;
+  font-weight: bold;
+}
