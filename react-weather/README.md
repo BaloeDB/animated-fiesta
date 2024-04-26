@@ -6,17 +6,18 @@ This is a simple weather app built with React. It uses the WeatherAPI to fetch a
 
 - Search for a city to get current weather data
 - Displays city name, temperature, weather description, wind data, humidity, and last updated time
+- Shows forecast for the next three days
+- Displays weather alerts
+- Allows users to add cities to favorites and quickly view the weather in those areas
 - Uses environment variables to securely store API key
+- - Use Geolocation API to get the user's current location and display their local weather by default
 
 ## Future Enhancements
 
-- Display forecast data for the next few days
-- Use Geolocation API to get the user's current location and display their local weather by default
-- Display weather alerts or severe weather information
-- Allow users to save their favorite locations
+- Add more detailed weather information, such as the UV index, visibility, sunrise and sunset times, etc.
 - Implement a dark mode
 - Add accessibility features
-- Add localization
+- Add localization of units (fahrenheit vs celsius)
 
 ## Setup
 
@@ -31,4 +32,4 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 
 ## License
 
-MIT
+<a href="https://www.gnu.org/licenses/gpl-3.0.html">GNU General Public License v3.0</a>
