@@ -16,7 +16,10 @@ function WeatherApp() {
     // Fetch current weather data
     fetch(currentUrl)
       .then((response) => response.json())
-      .then((data) => setWeatherData(data))
+      .then((data) => {
+        console.log(data);
+        setWeatherData(data);
+      })
       .catch((error) => console.error("Error:", error));
 
     // Fetch forecast data
@@ -73,8 +76,13 @@ function WeatherApp() {
           {forecastData.map((day) => (
             <div key={day.date} className="forecast-day">
               <h3>{day.date}</h3>
-              <p>Temperature: {day.day.avgtemp_c}°C</p>
-              <p>Condition: {day.day.condition.text}</p>
+              <img
+                className="weather-icon"
+                src={day.day.condition.icon}
+                alt="weather icon"
+              />
+              <p className="temperature">{day.day.avgtemp_c}°C</p>
+              <p className="weather-description">{day.day.condition.text}</p>
             </div>
           ))}
         </div>
